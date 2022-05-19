@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { notes } = require('../notes');
+// const { notes } = require('../notes');
 
 
 //get api/notes from db.json//
