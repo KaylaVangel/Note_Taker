@@ -17,3 +17,5 @@ router.get('/index', (req, res) => {
 
 
 //post api/notes added to db.json and returned to client 
+
+module.exports = router;
