@@ -12,14 +12,12 @@ router.get('/notes', (req, res) => {
 
 //post api/notes added to db.json and returned to client 
 router.post('/notes', (req, res) => { 
-    console.log(req.body);
     db.push(req.body);
-    console.log(db);
     fs.writeFileSync(
         path.join(__dirname, '../../db/db.json'),
         JSON.stringify(db , null, 2)
       );
-    res.json(db);
+    res.send(201);
 
 });
 
