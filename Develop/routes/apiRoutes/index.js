@@ -3,12 +3,12 @@ const { notes } = require('../notes');
 
 //get * index html file//
 router.get('/index', (req, res) => {
-    res.json(index);
+    // res.json(index);
 });
 
 //get/notes html file//
     router.get('/notes', (req, res) => {
-        res.json(notes);
+        // res.json(notes);
     });
 
 //get api/notes from db.json//
