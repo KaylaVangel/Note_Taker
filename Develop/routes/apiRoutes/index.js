@@ -1,23 +1,26 @@
 const router = require('express').Router();
-// const { notes } = require('../notes');
-
+const db = require('../../db/db.json');
+const fs = require('fs');
+const path = require('path');
 
 //get api/notes from db.json//
 router.get('/notes', (req, res) => {
-
+    res.json(db);
 });
 
 
 
 //post api/notes added to db.json and returned to client 
-router.post('/notes', (req, res) => { console.log (req.body);
-// req.body.title = notes.length.toString();
+router.post('/notes', (req, res) => { 
+    console.log(req.body);
+    db.push(req.body);
+    console.log(db);
+    fs.writeFileSync(
+        path.join(__dirname, '../../db/db.json'),
+        JSON.stringify(db , null, 2)
+      );
+    res.json(db);
 
-// if(req.body ===null) {
-//     res.status(400).send('Please fill out Title for note');
-// } else {
-//     res.
-// }
 });
 
 module.exports = router;
