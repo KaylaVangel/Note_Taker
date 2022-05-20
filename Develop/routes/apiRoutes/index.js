@@ -12,6 +12,7 @@ router.get('/notes', (req, res) => {
 
 //post api/notes added to db.json and returned to client 
 router.post('/notes', (req, res) => { 
+    req.body.id = Date.now();
     db.push(req.body);
     fs.writeFileSync(
         path.join(__dirname, '../../db/db.json'),

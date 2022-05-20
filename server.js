@@ -2,10 +2,10 @@ const express = require('express');
 
 const PORT = process.env.PORT || 80;
 const app = express();
-//why seperate routes? what is difference?//
+
 const apiRoutes = require('./Develop/routes/apiRoutes');
 const htmlRoutes = require('./Develop/routes/htmlRoutes');
-// //what ?//
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('Develop/public'));
