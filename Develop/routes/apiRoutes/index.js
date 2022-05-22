@@ -16,10 +16,20 @@ router.post('/notes', (req, res) => {
     db.push(req.body);
     fs.writeFileSync(
         path.join(__dirname, '../../db/db.json'),
-        JSON.stringify(db , null, 2)
+        JSON.stringify(db)
       );
-    res.send(201);
+    res.sendStatus(201);
 
 });
+
+router.delete('/notes/:id', (req, res) => {
+    const newDb =  db.filter(element => element.id != req.params.id);   
+    fs.writeFileSync(
+        path.join(__dirname, '../../db/db.json'),
+        JSON.stringify(newDb)
+      );
+
+    res.sendStatus(202);
+})
 
 module.exports = router;
